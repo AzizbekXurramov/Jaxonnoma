@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/us"
+        android:title="Amerika" />
+    <item
+        android:id="@+id/ru"
+        android:title="Rossiya" />
+    <item
+        android:id="@+id/it"
+        android:title="Italiya" />
+    <item
+        android:id="@+id/fr"
+        android:title="Fransiya"/>
+    <item
+        android:id="@+id/de"
+        android:title="Germaniya"/>
+    <item
+        android:id="@+id/jp"
+        android:title="Yaponiya"/>
+    <item
+        android:id="@+id/au"
+        android:title="Australiya"/>
+    <item
+        android:id="@+id/br"
+        android:title="Brazilya"/>
+    <item
+        android:id="@+id/cn"
+        android:title="CHina"/>
+    <item
+        android:id="@+id/kr"
+        android:title="Korea"/>
+    <item
+        android:id="@+id/nl"
+        android:title="Nedrlandiya"/>
+    <item
+        android:id="@+id/sa"
+        android:title="Saudia Arabistoni"/>
+    <item
+        android:id="@+id/za"
+        android:title="Afrika"/>
+    <item
+        android:id="@+id/tr"
+        android:title="Turkiya"/>
+    <item
+        android:id="@+id/ae"
+        android:title="Birlashgan arab amirligi"/>
+
+</menu>

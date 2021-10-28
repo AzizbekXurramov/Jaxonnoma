@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight="1.7"
+            android:weightSum="5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sana"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="20:20:2021"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:textSize="17sp"
+                android:text="hjdgshjbjdshbujhuhjkhjhhchhj
+                chbjsbhcjhbjuchhhduihduihduihdiuhduihduihduih"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight="1.3"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="20dp">
+
+                <ImageView
+                    android:id="@+id/images"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/images"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
