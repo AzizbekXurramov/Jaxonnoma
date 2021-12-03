@@ -1,58 +1,33 @@
 package uz.azizbekxurramov.jaxonnoma.UI.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.fragment.app.Fragment
-import uz.azizbekxurramov.jaxonnoma.Core.adapters.AdapterPagerView
+import androidx.appcompat.app.AppCompatActivity
 import uz.azizbekxurramov.jaxonnoma.Core.adapters.NewsAdapters
-import uz.azizbekxurramov.jaxonnoma.Fragmentslar.Fragment1
-import uz.azizbekxurramov.jaxonnoma.Fragmentslar.Fragment2
+import uz.azizbekxurramov.jaxonnoma.Core.adapters.PageAdapter
 import uz.azizbekxurramov.jaxonnoma.R
 import uz.azizbekxurramov.jaxonnoma.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(){
 
      lateinit var binding: ActivityMainBinding
-     private lateinit var adapterPage : AdapterPagerView
-     private var arrayFragment : ArrayList<Fragment> = ArrayList()
-    private var arratTitle:ArrayList<String> = ArrayList()
 
-
-     private var presenter:MainPresenter?=null
-   // private var adapters = NewsAdapters()
+    private var presenter: MainPresenter? = null
+    private var adapters: NewsAdapters = NewsAdapters()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.viewPager.adapter = PageAdapter(supportFragmentManager)
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
 
-        adapterPage = AdapterPagerView(fragmentManager = supportFragmentManager)
-        binding.pagerMain.adapter = adapterPage
-
-        arratTitle.add("oxirgi holat")
-        arratTitle.add("kategoriyalar")
-       // arratTitle.add("tugadi")
-
-
-        adapterPage.SetFragment(loadFragment(),arratTitle)
 
     }
 
-    private fun loadFragment():ArrayList<Fragment>{
 
-        var frag_1 : Fragment = Fragment1()
-        var frag_2 : Fragment = Fragment2()
-
-
-        arrayFragment.add(frag_1)
-        arrayFragment.add(frag_2)
-
-
-        return arrayFragment
-    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

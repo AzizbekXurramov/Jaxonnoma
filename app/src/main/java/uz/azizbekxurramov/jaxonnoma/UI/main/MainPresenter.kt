@@ -1,6 +1,5 @@
 package uz.azizbekxurramov.jaxonnoma.UI.main
 
-import android.content.Context
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,5 +49,25 @@ class MainPresenter(val view: MainContrakt.View) : MainContrakt.Presentr {
 
     override fun loadNewsByCategory(country: String, category: String, apiKey: String) {
         view.showProgres()
+        servise?.let {
+            it.loadNewsByCategory(country, category, apiKey)
+                .enqueue(object : Callback<NewsResponse> {
+                    override fun onResponse(
+                        call: Call<NewsResponse>,
+                        response: Response<NewsResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            view.sendData(response.body()?.articles)
+                        }
+                        view.hideProgres()
+                    }
+
+                    override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+                        view.setMessage(t.message)
+                        view.hideProgres()
+                    }
+
+                })
+        }
     }
 }

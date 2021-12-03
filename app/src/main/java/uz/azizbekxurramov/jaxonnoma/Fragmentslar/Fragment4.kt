@@ -14,34 +14,32 @@ import uz.azizbekxurramov.jaxonnoma.Core.models.NewsItem
 import uz.azizbekxurramov.jaxonnoma.R
 import uz.azizbekxurramov.jaxonnoma.UI.main.MainContrakt
 import uz.azizbekxurramov.jaxonnoma.UI.main.MainPresenter
-import uz.azizbekxurramov.jaxonnoma.databinding.FragmentNewsBinding
+import uz.azizbekxurramov.jaxonnoma.databinding.Fragment4Binding
 
-
-class Fragment1 : Fragment(), MainContrakt.View {
-    private lateinit var binding: FragmentNewsBinding
-    private var adapters:NewsAdapters = NewsAdapters()
-    private var presenter: MainPresenter?=null
+class Fragment4 : Fragment(), MainContrakt.View {
+    private lateinit var binding: Fragment4Binding
+    private var adapters: NewsAdapters = NewsAdapters()
+    private var presenter: MainPresenter? = null
 
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewsBinding.inflate(layoutInflater, container, false)
-        return  binding.root
+        binding = Fragment4Binding.inflate(inflater, container, false)
+        return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = MainPresenter(this)
-        presenter?.loadTopHeadline("tr", this.getString(R.string.api_key))
+        presenter?.loadNewsByCategory("tr", "business", this.getString(R.string.api_key))
 
         binding.userList.setLiner()
         binding.userList.adapter = adapters
-
     }
+
     override fun showProgres() {
         binding.progres.show()
     }
@@ -51,11 +49,10 @@ class Fragment1 : Fragment(), MainContrakt.View {
     }
 
     override fun sendData(data: List<NewsItem>?) {
-        adapters.data=data
+        adapters.data = data
     }
 
     override fun setMessage(message: String?) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
-
 }

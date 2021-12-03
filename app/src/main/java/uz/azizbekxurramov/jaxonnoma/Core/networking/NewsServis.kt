@@ -12,8 +12,15 @@ interface NewsServis {
     fun loadTopHeadline(
         // &- belgiga vergul quyamiz
         //@Query--uzgardigan soha bulishi mn
-        @Query("country") country:String,
-        @Query("apiKey") apiKey:String
+        @Query("country") country: String,
+        @Query("apiKey") apiKey: String
+    ): Call<NewsResponse>
 
-    ):Call<NewsResponse>
+    @GET("v2/top-headlines")
+    fun loadNewsByCategory(
+        @Query("country") country: String,
+        @Query("category") category: String,
+        @Query("apiKey") apiKey: String
+
+    ): Call<NewsResponse>
 }
